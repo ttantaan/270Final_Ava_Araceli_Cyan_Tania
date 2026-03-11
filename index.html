@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -11,12 +12,12 @@
 
 body{
 margin:0;
-background:#0c0c0c;
+background:#6C6F73;
 color:white;
 font-family:'Playfair Display',serif;
-overflow-x:
+}
 
-/* layout */
+/* page layout */
 
 .page{
 display:flex;
@@ -27,7 +28,7 @@ gap:60px;
 /* sidebar */
 
 .sidebar{
-width:320px;
+width:300px;
 }
 
 .names{
@@ -37,54 +38,59 @@ margin-bottom:5px;
 
 .course{
 font-size:18px;
-margin-bottom:25px;
+margin-bottom:10px;
 }
 
-/* mission */
+/* CSULA logo */
+
+.logo{
+width:150px;
+margin-bottom:30px;
+}
+
+/* mission box */
 
 .mission{
-background:#1b1b1b;
+background:#7a7d81;
 padding:20px;
 border-radius:10px;
-border:1px solid #333;
 line-height:1.6;
 }
 
-/* main */
+/* main content */
 
 .main{
 flex:1;
 }
 
-/* glowing divider */
+/* horizontal glowing bar */
 
 .glow-bar{
 width:100%;
-height:12px;
+height:10px;
 background:white;
 margin-bottom:40px;
 border-radius:4px;
 
 box-shadow:
-0 0 6px #ffe066,
-0 0 10px rgba(255,214,51,.4);
+0 0 4px #ffd84d,
+0 0 8px rgba(255,214,51,.25);
 }
 
-/* hero */
+/* overview section */
 
 .hero{
 display:flex;
 justify-content:space-between;
-align-items:flex-start;
 gap:40px;
 }
 
 .title{
 font-family:'Cinzel';
-font-size:70px;
+font-size:60px;
 }
 
-/* slideshow */
+/* oval slideshow */
 
 .frame-wrapper{
 width:420px;
@@ -97,7 +103,7 @@ height:100%;
 border-radius:50%;
 overflow:hidden;
 position:relative;
-box-shadow:0 0 25px rgba(255,255,255,.15);
+box-shadow:0 0 18px rgba(255,255,255,.3);
 }
 
 .frame img{
@@ -113,11 +119,11 @@ transition:opacity 3s;
 opacity:1;
 }
 
-/* music */
+/* music placeholder */
 
 .music{
 margin-top:20px;
-background:#1b1b1b;
+background:#7a7d81;
 padding:15px;
 text-align:center;
 border-radius:10px;
@@ -129,10 +135,10 @@ border-radius:10px;
 text-align:center;
 margin:60px 0;
 letter-spacing:10px;
-font-size:24px;
+font-size:22px;
 }
 
-/* grid */
+/* grid layout */
 
 .grid{
 display:grid;
@@ -143,28 +149,26 @@ gap:30px;
 /* text boxes */
 
 .box{
-background:#1b1b1b;
-border:1px solid #333;
+background:#7a7d81;
 border-radius:10px;
 padding:20px;
 cursor:pointer;
+height:180px;
 overflow:hidden;
-height:150px;
 transition:.4s;
 }
 
-.box.large{
-height:200px;
-}
-
 .box.active{
-height:320px;
+height:340px;
 overflow-y:auto;
 }
 
 .box h3{
 font-family:'Cinzel';
+margin-top:0;
 }
+
+/* centered final box */
 
 .center{
 grid-column:1/-1;
@@ -177,32 +181,35 @@ text-align:center;
 
 <body>
 
-<div class="cosmic-bg">
-
-<svg width="100%" height="100%" viewBox="0 0 1200 800">
-
 <div class="page">
 
-<!-- LEFT SIDE -->
+<!-- Sidebar -->
 
 <div class="sidebar">
 
-<div class="names">Tania • Ava • Araceli • Cyan</div>
-<div class="course">IS270</div>
+<div class="names">
+Tania • Ava • Araceli • Cyan
+</div>
+
+<div class="course">
+IS270
+</div>
+
+<img src="csula_logo.png" class="logo">
 
 <div class="mission">
 
 <h3>Mission</h3>
 
 <p>
-Cal State LA Special Collections & Archives supports the discovery, learning and engagement goals of the University by identifying, acquiring, preserving, and providing access to primary research materials of enduring value.
+Cal State LA Special Collections & Archives supports the discovery, learning and engagement goals of the University by identifying, acquiring, preserving, and providing access to primary research materials of enduring value in support of the academic mission of the university, the educational and research needs of the Cal State LA academic community, scholars, and the research community at large.
 </p>
 
 </div>
 
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- Main Content -->
 
 <div class="main">
 
@@ -215,7 +222,7 @@ Cal State LA Special Collections & Archives supports the discovery, learning and
 <div class="title">Overview</div>
 
 <p>
-Overview text here explaining the profession and project.
+Overview text explaining the archival profession and your project.
 </p>
 
 </div>
@@ -233,49 +240,75 @@ Overview text here explaining the profession and project.
 
 </div>
 
-<div class="music">Future Music</div>
-
+<div class="music">
+Future music player
 </div>
 
 </div>
 
-<div class="divider">✦ ✦ ✦</div>
+</div>
+
+<div class="divider">
+✦ ✦ ✦
+</div>
+
+<!-- 7 text boxes -->
 
 <div class="grid">
 
-<div class="box large" onclick="expand(this)">
+<div class="box" onclick="expand(this)">
 <h3>Typical Tasks</h3>
-<p>text</p>
+<p>
+Insert your text here.
+</p>
 </div>
 
 <div class="box" onclick="expand(this)">
 <h3>Professional Context</h3>
-<p>text</p>
+<p>
+Insert your text here.
+</p>
 </div>
 
 <div class="box" onclick="expand(this)">
 <h3>Job Market Outlook</h3>
-<p>text</p>
+<p>
+Insert your text here.
+</p>
 </div>
 
-<div class="box large" onclick="expand(this)">
+<div class="box" onclick="expand(this)">
 <h3>Technical Skills</h3>
-<p>text</p>
+<p>
+Insert your text here.
+</p>
 </div>
 
 <div class="box" onclick="expand(this)">
 <h3>Training</h3>
-<p>text</p>
+<p>
+Insert your text here.
+</p>
 </div>
 
 <div class="box" onclick="expand(this)">
 <h3>Labor Trends</h3>
-<p>text</p>
+<p>
+Insert your text here.
+</p>
 </div>
 
-<div class="box center large" onclick="expand(this)">
-<h3>Five Ways To Understand The Profession</h3>
-<p>1<br>2<br>3<br>4<br>5</p>
+<div class="box center" onclick="expand(this)">
+<h3>Five Ways to Understand the Profession</h3>
+
+<p>
+1<br>
+2<br>
+3<br>
+4<br>
+5
+</p>
+
 </div>
 
 </div>
@@ -286,9 +319,13 @@ Overview text here explaining the profession and project.
 
 <script>
 
+/* expand text boxes */
+
 function expand(box){
 box.classList.toggle("active");
 }
+
+/* slideshow */
 
 const images=[
 "IMG_1683.jpeg",
@@ -296,7 +333,7 @@ const images=[
 "IMG_1685.jpeg",
 "IMG_1686.jpeg",
 "IMG_1687.jpeg",
-"IMG_1688.jpeg",
+  "IMG_1688.jpeg",
 "IMG_1689.jpeg",
   "IMG_1690.jpeg",
   "IMG_1691.jpeg",
