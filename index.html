@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
-<title>IS 270 Overview</title>
+<title>IS270 Project</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap" rel="stylesheet">
 
@@ -11,63 +11,47 @@
 
 body{
 margin:0;
-background:#111;
-color:#f5f5f5;
-font-family:'Playfair Display', serif;
+background:#0c0c0c;
+color:white;
+font-family:'Playfair Display',serif;
+overflow-x:hidden;
 }
 
-/* decorative background, going to add decorative elements so it wont be too empty. currently it is unfinished code*/
-
-<div class="cosmic-bg">
-
-<svg width="100%" height="100%" preserveAspectRatio="none">
-
-<!-- constellation lines -->
-<line x1="10%" y1="20%" x2="25%" y2="35%" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-<line x1="25%" y1="35%" x2="40%" y2="25%" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-<line x1="70%" y1="15%" x2="85%" y2="30%" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-<line x1="60%" y1="70%" x2="80%" y2="80%" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-
-<!-- circle stars -->
-<circle cx="10%" cy="20%" r="2" fill="white"/>
-<circle cx="25%" cy="35%" r="2" fill="white"/>
-<circle cx="40%" cy="25%" r="2" fill="white"/>
-<circle cx="70%" cy="15%" r="2" fill="white"/>
-<circle cx="85%" cy="30%" r="2" fill="white"/>
-<circle cx="60%" cy="70%" r="2" fill="white"/>
-<circle cx="80%" cy="80%" r="2" fill="white"/>
-
-<!-- diamond stars -->
-<rect x="45%" y="70%" width="4" height="4" fill="white" transform="rotate(45 45 70)"/>
-<rect x="20%" y="60%" width="4" height="4" fill="white" transform="rotate(45 20 60)"/>
-<rect x="75%" y="50%" width="4" height="4" fill="white" transform="rotate(45 75 50)"/>
-
-</svg>
-
-</div>
+/* SKY */
 
 .cosmic-bg{
-
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
-
-pointer-events:none;
-
+top:0;
+left:0;
+opacity:.45;
 z-index:-1;
-
-opacity:.35;
-
+animation:skyMove 140s infinite linear;
 }
 
-/* page layout */
+@keyframes skyMove{
+0%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+100%{transform:translateY(0)}
+}
+
+.star{
+fill:white;
+animation:twinkle 4s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.3}
+to{opacity:1}
+}
+
+/* layout */
 
 .page{
 display:flex;
+padding:50px;
 gap:60px;
-padding:40px 60px;
 }
 
 /* sidebar */
@@ -78,43 +62,37 @@ width:320px;
 
 .names{
 font-size:18px;
-margin-bottom:6px;
+margin-bottom:5px;
 }
 
 .course{
-margin-bottom:20px;
+font-size:18px;
+margin-bottom:25px;
 }
 
 /* mission */
 
-.mission-box{
-background:rgba(20,20,20,.75);
+.mission{
+background:#1b1b1b;
 padding:20px;
-border-radius:8px;
+border-radius:10px;
 border:1px solid #333;
-font-size:14px;
 line-height:1.6;
-box-shadow:0 0 12px rgba(255,255,255,.05);
 }
 
-.mission-box h3{
-font-family:'Cinzel',serif;
-margin-top:0;
-}
-
-/* main content */
+/* main */
 
 .main{
 flex:1;
 }
 
-/* glow bar */
+/* glowing divider */
 
 .glow-bar{
 width:100%;
 height:12px;
 background:white;
-margin:10px 0 40px 0;
+margin-bottom:40px;
 border-radius:4px;
 
 box-shadow:
@@ -127,26 +105,18 @@ box-shadow:
 .hero{
 display:flex;
 justify-content:space-between;
-gap:40px;
 align-items:flex-start;
+gap:40px;
 }
-
-/* title */
 
 .title{
-font-family:'Cinzel',serif;
-font-size:80px;
-margin-bottom:10px;
+font-family:'Cinzel';
+font-size:70px;
 }
 
-.intro{
-max-width:420px;
-}
-
-/* frame */
+/* slideshow */
 
 .frame-wrapper{
-position:relative;
 width:420px;
 height:260px;
 }
@@ -156,9 +126,8 @@ width:100%;
 height:100%;
 border-radius:50%;
 overflow:hidden;
-background:#1a1a1a;
 position:relative;
-box-shadow:0 0 20px rgba(255,255,255,0.15);
+box-shadow:0 0 25px rgba(255,255,255,.15);
 }
 
 .frame img{
@@ -166,10 +135,8 @@ position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
-top:0;
-left:0;
 opacity:0;
-transition:opacity 3s ease;
+transition:opacity 3s;
 }
 
 .frame img.active{
@@ -178,13 +145,12 @@ opacity:1;
 
 /* music */
 
-.audio-section{
+.music{
 margin-top:20px;
-text-align:center;
-padding:15px;
 background:#1b1b1b;
+padding:15px;
+text-align:center;
 border-radius:10px;
-box-shadow:0 0 20px rgba(255,255,255,0.05);
 }
 
 /* divider */
@@ -192,8 +158,8 @@ box-shadow:0 0 20px rgba(255,255,255,0.05);
 .divider{
 text-align:center;
 margin:60px 0;
-font-size:24px;
 letter-spacing:10px;
+font-size:24px;
 }
 
 /* grid */
@@ -204,59 +170,214 @@ grid-template-columns:1fr 1fr;
 gap:30px;
 }
 
-/* boxes */
+/* text boxes */
 
-.section{
+.box{
 background:#1b1b1b;
-padding:25px;
-border-radius:10px;
 border:1px solid #333;
-box-shadow:0 0 15px rgba(255,255,255,0.05);
-height:160px;
-overflow:hidden;
+border-radius:10px;
+padding:20px;
 cursor:pointer;
+overflow:hidden;
+height:150px;
 transition:.4s;
 }
 
-.section.active{
+.box.large{
+height:200px;
+}
+
+.box.active{
 height:320px;
 overflow-y:auto;
 }
 
-.section h2{
-font-family:'Cinzel',serif;
+.box h3{
+font-family:'Cinzel';
 }
 
-.full{
+.center{
 grid-column:1/-1;
 text-align:center;
 }
 
 </style>
+
 </head>
 
 <body>
 
+<div class="cosmic-bg">
+
+<svg width="100%" height="100%" viewBox="0 0 1200 800">
+
+<!-- ARIES -->
+<g transform="scale(0.8) translate(120 140)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="40" cy="30" r="2"/>
+<circle class="star" cx="80" cy="0" r="2"/>
+<line x1="0" y1="0" x2="40" y2="30" stroke="white" opacity=".4"/>
+<line x1="40" y1="30" x2="80" y2="0" stroke="white" opacity=".4"/>
+</g>
+
+<!-- TAURUS -->
+<g transform="scale(1.1) translate(320 80)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="50" cy="40" r="2"/>
+<circle class="star" cx="100" cy="0" r="2"/>
+<circle class="star" cx="70" cy="-40" r="2"/>
+<line x1="0" y1="0" x2="50" y2="40" stroke="white" opacity=".4"/>
+<line x1="50" y1="40" x2="100" y2="0" stroke="white" opacity=".4"/>
+<line x1="100" y1="0" x2="70" y2="-40" stroke="white" opacity=".4"/>
+</g>
+
+<!-- GEMINI -->
+<g transform="scale(0.9) translate(700 100)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="20" cy="60" r="2"/>
+<circle class="star" cx="80" cy="10" r="2"/>
+<circle class="star" cx="100" cy="70" r="2"/>
+<line x1="0" y1="0" x2="20" y2="60" stroke="white"/>
+<line x1="80" y1="10" x2="100" y2="70" stroke="white"/>
+</g>
+
+<!-- CANCER -->
+<g transform="scale(.8) translate(1000 200)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="40" cy="30" r="2"/>
+<circle class="star" cx="80" cy="0" r="2"/>
+<circle class="star" cx="40" cy="-30" r="2"/>
+<line x1="0" y1="0" x2="40" y2="30" stroke="white"/>
+<line x1="40" y1="30" x2="80" y2="0" stroke="white"/>
+<line x1="80" y1="0" x2="40" y2="-30" stroke="white"/>
+</g>
+
+<!-- LEO -->
+<g transform="scale(1.2) translate(850 350)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="40" cy="40" r="2"/>
+<circle class="star" cx="80" cy="10" r="2"/>
+<circle class="star" cx="110" cy="50" r="2"/>
+<line x1="0" y1="0" x2="40" y2="40" stroke="white"/>
+<line x1="40" y1="40" x2="80" y2="10" stroke="white"/>
+<line x1="80" y1="10" x2="110" y2="50" stroke="white"/>
+</g>
+
+<!-- VIRGO -->
+<g transform="scale(.7) translate(600 420)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="30" cy="40" r="2"/>
+<circle class="star" cx="70" cy="20" r="2"/>
+<circle class="star" cx="100" cy="60" r="2"/>
+<line x1="0" y1="0" x2="30" y2="40" stroke="white"/>
+<line x1="30" y1="40" x2="70" y2="20" stroke="white"/>
+<line x1="70" y1="20" x2="100" y2="60" stroke="white"/>
+</g>
+
+<!-- LIBRA -->
+<g transform="scale(.9) translate(320 400)">
+<circle class="star" cx="0" cy="20" r="2"/>
+<circle class="star" cx="40" cy="0" r="2"/>
+<circle class="star" cx="80" cy="20" r="2"/>
+<line x1="0" y1="20" x2="40" y2="0" stroke="white"/>
+<line x1="40" y1="0" x2="80" y2="20" stroke="white"/>
+</g>
+
+<!-- SCORPIO -->
+<g transform="scale(1.1) translate(100 460)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="40" cy="40" r="2"/>
+<circle class="star" cx="80" cy="20" r="2"/>
+<circle class="star" cx="120" cy="60" r="2"/>
+<circle class="star" cx="160" cy="30" r="2"/>
+<line x1="0" y1="0" x2="40" y2="40" stroke="white"/>
+<line x1="40" y1="40" x2="80" y2="20" stroke="white"/>
+<line x1="80" y1="20" x2="120" y2="60" stroke="white"/>
+<line x1="120" y1="60" x2="160" y2="30" stroke="white"/>
+</g>
+
+<!-- SAGITTARIUS -->
+<g transform="scale(.8) translate(900 520)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="40" cy="40" r="2"/>
+<circle class="star" cx="80" cy="0" r="2"/>
+<circle class="star" cx="120" cy="40" r="2"/>
+<line x1="0" y1="0" x2="40" y2="40" stroke="white"/>
+<line x1="40" y1="40" x2="80" y2="0" stroke="white"/>
+<line x1="80" y1="0" x2="120" y2="40" stroke="white"/>
+</g>
+
+<!-- CAPRICORN -->
+<g transform="scale(.9) translate(600 600)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="30" cy="40" r="2"/>
+<circle class="star" cx="70" cy="20" r="2"/>
+<circle class="star" cx="100" cy="60" r="2"/>
+<line x1="0" y1="0" x2="30" y2="40" stroke="white"/>
+<line x1="30" y1="40" x2="70" y2="20" stroke="white"/>
+<line x1="70" y1="20" x2="100" y2="60" stroke="white"/>
+</g>
+
+<!-- AQUARIUS -->
+<g transform="scale(.85) translate(350 650)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="40" cy="20" r="2"/>
+<circle class="star" cx="80" cy="0" r="2"/>
+<circle class="star" cx="120" cy="20" r="2"/>
+<line x1="0" y1="0" x2="40" y2="20" stroke="white"/>
+<line x1="40" y1="20" x2="80" y2="0" stroke="white"/>
+<line x1="80" y1="0" x2="120" y2="20" stroke="white"/>
+</g>
+
+<!-- PISCES -->
+<g transform="scale(1) translate(1000 650)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="40" cy="40" r="2"/>
+<circle class="star" cx="80" cy="0" r="2"/>
+<circle class="star" cx="120" cy="40" r="2"/>
+<line x1="0" y1="0" x2="40" y2="40" stroke="white"/>
+<line x1="80" y1="0" x2="120" y2="40" stroke="white"/>
+</g>
+
+<!-- OPHIUCHUS (13th zodiac) -->
+<g transform="scale(.95) translate(520 250)">
+<circle class="star" cx="0" cy="0" r="2"/>
+<circle class="star" cx="40" cy="40" r="2"/>
+<circle class="star" cx="80" cy="20" r="2"/>
+<circle class="star" cx="120" cy="60" r="2"/>
+<circle class="star" cx="160" cy="30" r="2"/>
+<line x1="0" y1="0" x2="40" y2="40" stroke="white"/>
+<line x1="40" y1="40" x2="80" y2="20" stroke="white"/>
+<line x1="80" y1="20" x2="120" y2="60" stroke="white"/>
+<line x1="120" y1="60" x2="160" y2="30" stroke="white"/>
+</g>
+
+</svg>
+
+</div>
+
 <div class="page">
+
+<!-- LEFT SIDE -->
 
 <div class="sidebar">
 
-<div class="names">Tania, Ava, Araceli, Cyan</div>
-<div class="course">IS 270</div>
+<div class="names">Tania • Ava • Araceli • Cyan</div>
+<div class="course">IS270</div>
 
-<div class="mission-box">
+<div class="mission">
 
 <h3>Mission</h3>
 
 <p>
-Cal State LA Special Collections & Archives supports the discovery, learning and engagement goals of the University by identifying, acquiring, preserving, and providing access to primary research materials of enduring value in support of the academic mission of the university, the educational and research needs of the Cal State LA academic community, scholars, and the research community at large.
-
-As a repository situated in East Los Angeles, and at the heart of several diasporic, immigrant communities, Special Collections & Archives moreover aims to capture the diverse lives and historical narratives reflected in our heavily first-generation student body, and the major contributions their communities have made to the dynamic cultures of Southern California.
+Cal State LA Special Collections & Archives supports the discovery, learning and engagement goals of the University by identifying, acquiring, preserving, and providing access to primary research materials of enduring value.
 </p>
 
 </div>
 
 </div>
+
+<!-- MAIN CONTENT -->
 
 <div class="main">
 
@@ -268,8 +389,8 @@ As a repository situated in East Los Angeles, and at the heart of several diaspo
 
 <div class="title">Overview</div>
 
-<p class="intro">
-Insert your overview text here describing the profession and its significance.
+<p>
+Overview text here explaining the profession and project.
 </p>
 
 </div>
@@ -279,15 +400,15 @@ Insert your overview text here describing the profession and its significance.
 <div class="frame-wrapper">
 
 <div class="frame">
+
 <img id="imgA" class="active">
 <img id="imgB">
-</div>
 
 </div>
 
-<div class="audio-section">
-Future Music Section
 </div>
+
+<div class="music">Future Music</div>
 
 </div>
 
@@ -297,44 +418,39 @@ Future Music Section
 
 <div class="grid">
 
-<div class="section" onclick="toggleBox(this)">
-<h2>Typical Tasks</h2>
-<p>Add text here.</p>
+<div class="box large" onclick="expand(this)">
+<h3>Typical Tasks</h3>
+<p>text</p>
 </div>
 
-<div class="section" onclick="toggleBox(this)">
-<h2>Professional Context</h2>
-<p>Add text here.</p>
+<div class="box" onclick="expand(this)">
+<h3>Professional Context</h3>
+<p>text</p>
 </div>
 
-<div class="section" onclick="toggleBox(this)">
-<h2>Job-Market Outlook</h2>
-<p>Add text here.</p>
+<div class="box" onclick="expand(this)">
+<h3>Job Market Outlook</h3>
+<p>text</p>
 </div>
 
-<div class="section" onclick="toggleBox(this)">
-<h2>Technical Skill Snapshot</h2>
-<p>Azalea came into SCA without very many technical skills and had to learn them on the job because when she entered the archive, there was no infrastructure set up for the technical aspects. She created the metadata standards for the collections and learned about customized and local schemas for the community-based collections. 
-Do entry level archivists need to have these skills right away?
-Azalea recommended for us to become comfortable with digital repositories and metadata before entering into the field. Another skill she highlighted as important to know is how digital repositories intersect with other content management and discovery systems. Cal State LA uses Alma/Primo, which is the discovery system for the University Library. The skills you need depend on the job you’re applying for. SCA was looking for a digital preservationist and metadata experts to fill a gap in the current team. 
-
-She thinks tech will come and go and that AI needs to be thought of more critically (use, how to respond, emotional/intellectual impact). doesn’t feel as though AI can remove the people/community aspect from librarianship and archivism and that the process itself connects the human experience. though AI does exacerbate the loneliness aspect of the digital sphere. emphasizes that the soft skills are incredibly important for archival/librarian careers, that people skills and communication are paramount above tech skills (which can always be learned). 
-</p>
+<div class="box large" onclick="expand(this)">
+<h3>Technical Skills</h3>
+<p>text</p>
 </div>
 
-<div class="section" onclick="toggleBox(this)">
-<h2>Training Agenda</h2>
-<p>Add text here.</p>
+<div class="box" onclick="expand(this)">
+<h3>Training</h3>
+<p>text</p>
 </div>
 
-<div class="section" onclick="toggleBox(this)">
-<h2>Labor Trends</h2>
-<p>Add text here.</p>
+<div class="box" onclick="expand(this)">
+<h3>Labor Trends</h3>
+<p>text</p>
 </div>
 
-<div class="section full" onclick="toggleBox(this)">
-<h2>Five Ways to Understand the Profession</h2>
-<p>1.<br>2.<br>3.<br>4.<br>5.</p>
+<div class="box center large" onclick="expand(this)">
+<h3>Five Ways To Understand The Profession</h3>
+<p>1<br>2<br>3<br>4<br>5</p>
 </div>
 
 </div>
@@ -345,7 +461,9 @@ She thinks tech will come and go and that AI needs to be thought of more critica
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function(){
+function expand(box){
+box.classList.toggle("active");
+}
 
 const images=[
 "IMG_1683.jpeg",
@@ -355,13 +473,13 @@ const images=[
 "IMG_1687.jpeg",
 "IMG_1688.jpeg",
 "IMG_1689.jpeg",
-"IMG_1690.jpeg",
-"IMG_1691.jpeg",
-"IMG_1692.jpeg",
-"IMG_1693.jpeg",
-"IMG_1694.jpeg",
-"IMG_1695.jpeg",
-"IMG_1696.jpeg"
+  "IMG_1690.jpeg",
+  "IMG_1691.jpeg",
+  "IMG_1692.jpeg",
+  "IMG_1693.jpeg",
+  "IMG_1694.jpeg",
+  "IMG_1695.jpeg",
+  "IMG_1696.jpeg"
 ];
 
 let index=0;
@@ -369,36 +487,23 @@ let index=0;
 const imgA=document.getElementById("imgA");
 const imgB=document.getElementById("imgB");
 
-let showingA=true;
-
 imgA.src=images[0];
 
-function changeImage(){
+setInterval(()=>{
 
 index=(index+1)%images.length;
-let next=images[index];
 
-if(showingA){
-imgB.src=next;
+imgB.src=images[index];
 imgB.classList.add("active");
 imgA.classList.remove("active");
-}else{
-imgA.src=next;
+
+setTimeout(()=>{
+imgA.src=images[index];
 imgA.classList.add("active");
 imgB.classList.remove("active");
-}
+},3000)
 
-showingA=!showingA;
-
-}
-
-setInterval(changeImage,120000);
-
-});
-
-function toggleBox(box){
-box.classList.toggle("active");
-}
+},60000);
 
 </script>
 
