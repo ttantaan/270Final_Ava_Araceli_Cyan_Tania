@@ -52,6 +52,7 @@ body {
   line-height: 1.6;
   border: 2px solid #ffd84d; /* CSULA glow border */
   box-shadow: 0 0 12px #ffd84d;
+  transition: box-shadow 0.4s, border 0.4s;
 }
 
 /* Main content */
@@ -120,6 +121,7 @@ body {
   border-radius: 10px;
   border: 2px solid #ffd84d;
   box-shadow: 0 0 12px #ffd84d;
+  transition: box-shadow 0.4s, border 0.4s;
 }
 
 /* Divider */
@@ -166,6 +168,13 @@ body {
   text-align: center;
 }
 
+/* Hover effect for boxes, mission, and music */
+.box:hover,
+.mission:hover,
+.music:hover {
+  border-color: #ffd84d;
+  box-shadow: 0 0 20px #ffd84d, 0 0 30px #ffd84d, 0 0 40px #ffd84d;
+}
 </style>
 </head>
 
