@@ -2,172 +2,174 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <title>IS270 Project</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap" rel="stylesheet">
 
 <style>
-
-body{
-  margin:0;
-  background:#6C6F73;
-  color:white;
-  font-family:'Playfair Display',serif;
+/* Body and page */
+body {
+  margin: 0;
+  background: #000; /* black background */
+  color: white;
+  font-family: 'Playfair Display', serif;
 }
 
-/* page layout */
-.page{
-  display:flex;
-  padding:50px;
-  gap:60px;
+.page {
+  display: flex;
+  padding: 50px;
+  gap: 60px;
 }
 
-/* sidebar */
-.sidebar{
-  width:300px;
+/* Sidebar */
+.sidebar {
+  width: 300px;
 }
 
-.names{
-  font-size:18px;
-  margin-bottom:5px;
+.names {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
-.course{
-  font-size:18px;
-  margin-bottom:10px;
+.course {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-/* CSULA logo */
-.logo{
-  width:150px;
-  margin-bottom:30px;
-  display:block;
+/* CSULA Logo */
+.logo {
+  width: 150px;
+  margin: 0 auto 30px auto;
+  display: block;
 }
 
-/* mission box */
-.mission{
-  background:#000; /* black text box */
-  padding:20px;
-  border-radius:10px;
-  line-height:1.6;
+/* Mission box */
+.mission {
+  background: #6C6F73; /* CSULA grey */
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 1.6;
+  border: 2px solid #ffd84d; /* CSULA glow border */
+  box-shadow: 0 0 12px #ffd84d;
 }
 
-/* main content */
-.main{
-  flex:1;
+/* Main content */
+.main {
+  flex: 1;
 }
 
-/* horizontal glowing bar */
-.glow-bar{
-  width:100%;
-  height:10px;
-  background:white;
-  margin-bottom:40px;
-  border-radius:4px;
+/* Horizontal glowing bar */
+.glow-bar {
+  width: 100%;
+  height: 10px;
+  background: white;
+  margin-bottom: 40px;
+  border-radius: 4px;
   box-shadow:
     0 0 4px #ffd84d,
-    0 0 8px rgba(255,214,51,.25);
+    0 0 8px rgba(255, 214, 51, 0.25);
 }
 
-/* overview section */
-.hero{
-  display:flex;
-  justify-content:space-between;
-  gap:40px;
+/* Overview section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.title{
-  font-family:'Cinzel';
-  font-size:60px;
+.title {
+  font-family: 'Cinzel';
+  font-size: 60px;
 }
 
-/* oval slideshow */
-.frame-wrapper{
-  width:420px;
-  height:260px;
+/* Oval slideshow */
+.frame-wrapper {
+  width: 420px;
+  height: 260px;
 }
 
-.frame{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  overflow:hidden;
-  position:relative;
-  box-shadow:0 0 18px rgba(255,255,255,.3);
+.frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.3);
 }
 
-.frame img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 3s;
+.frame img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 3s;
 }
 
-.frame img.active{
-  opacity:1;
+.frame img.active {
+  opacity: 1;
 }
 
-/* music placeholder */
-.music{
-  margin-top:20px;
-  background:#000; /* black text box */
-  padding:15px;
-  text-align:center;
-  border-radius:10px;
+/* Music placeholder */
+.music {
+  margin-top: 20px;
+  background: #6C6F73; /* CSULA grey */
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #ffd84d;
+  box-shadow: 0 0 12px #ffd84d;
 }
 
-/* divider */
-.divider{
-  text-align:center;
-  margin:60px 0;
-  letter-spacing:10px;
-  font-size:22px;
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 60px 0;
+  letter-spacing: 10px;
+  font-size: 22px;
 }
 
-/* grid layout */
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
-/* text boxes */
-.box{
-  background:#000; /* black text box */
-  border-radius:10px;
-  padding:20px;
-  cursor:pointer;
-  height:180px;
-  overflow:hidden;
-  transition:.4s;
+/* Text boxes */
+.box {
+  background: #6C6F73; /* CSULA grey */
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  height: 180px;
+  overflow: hidden;
+  transition: 0.4s;
+  border: 2px solid #ffd84d; /* CSULA glow border */
+  box-shadow: 0 0 12px #ffd84d;
 }
 
-.box.active{
-  height:340px;
-  overflow-y:auto;
+.box.active {
+  height: 340px;
+  overflow-y: auto;
 }
 
-.box h3{
-  font-family:'Cinzel';
-  margin-top:0;
+.box h3 {
+  font-family: 'Cinzel';
+  margin-top: 0;
 }
 
-/* centered final box */
-.center{
-  grid-column:1/-1;
-  text-align:center;
+/* Centered final box */
+.center {
+  grid-column: 1/-1;
+  text-align: center;
 }
 
 </style>
-
 </head>
 
 <body>
-
 <div class="page">
 
   <!-- Sidebar -->
@@ -198,12 +200,9 @@ body{
     <div class="glow-bar"></div>
 
     <div class="hero">
-
       <div>
         <div class="title">Overview</div>
-        <p>
-          Overview text explaining the archival profession and your project.
-        </p>
+        <p>Overview text explaining the archival profession and your project.</p>
       </div>
 
       <div>
@@ -218,12 +217,9 @@ body{
           Future music player
         </div>
       </div>
-
     </div>
 
-    <div class="divider">
-      ✦ ✦ ✦
-    </div>
+    <div class="divider">✦ ✦ ✦</div>
 
     <!-- 7 text boxes -->
     <div class="grid">
@@ -260,28 +256,20 @@ body{
 
       <div class="box center" onclick="expand(this)">
         <h3>Five Ways to Understand the Profession</h3>
-        <p>
-          1<br>
-          2<br>
-          3<br>
-          4<br>
-          5
-        </p>
+        <p>1<br>2<br>3<br>4<br>5</p>
       </div>
 
     </div>
-
   </div>
-
 </div>
 
 <script>
-/* expand text boxes */
+/* Expand text boxes */
 function expand(box){
   box.classList.toggle("active");
 }
 
-/* slideshow */
+/* Slideshow */
 const images=[
   "IMG_1683.jpeg","IMG_1684.jpeg","IMG_1685.jpeg","IMG_1686.jpeg",
   "IMG_1687.jpeg","IMG_1688.jpeg","IMG_1689.jpeg","IMG_1690.jpeg",
