@@ -9,8 +9,6 @@
 
 <style>
 
-/* BODY */
-
 body{
 margin:0;
 background:#111;
@@ -18,49 +16,134 @@ color:#f5f5f5;
 font-family:'Playfair Display', serif;
 }
 
-/* TOP LEFT TEXT */
+/* decorative background */
 
-.top-left{
-position:absolute;
-top:20px;
-left:30px;
+<div class="cosmic-bg">
+
+<svg width="100%" height="100%" preserveAspectRatio="none">
+
+<!-- constellation lines -->
+<line x1="10%" y1="20%" x2="25%" y2="35%" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+<line x1="25%" y1="35%" x2="40%" y2="25%" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+<line x1="70%" y1="15%" x2="85%" y2="30%" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+<line x1="60%" y1="70%" x2="80%" y2="80%" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+
+<!-- circle stars -->
+<circle cx="10%" cy="20%" r="2" fill="white"/>
+<circle cx="25%" cy="35%" r="2" fill="white"/>
+<circle cx="40%" cy="25%" r="2" fill="white"/>
+<circle cx="70%" cy="15%" r="2" fill="white"/>
+<circle cx="85%" cy="30%" r="2" fill="white"/>
+<circle cx="60%" cy="70%" r="2" fill="white"/>
+<circle cx="80%" cy="80%" r="2" fill="white"/>
+
+<!-- diamond stars -->
+<rect x="45%" y="70%" width="4" height="4" fill="white" transform="rotate(45 45 70)"/>
+<rect x="20%" y="60%" width="4" height="4" fill="white" transform="rotate(45 20 60)"/>
+<rect x="75%" y="50%" width="4" height="4" fill="white" transform="rotate(45 75 50)"/>
+
+</svg>
+
+</div>
+
+.cosmic-bg{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+z-index:-1;
+
+opacity:.35;
+
+}
+
+/* page layout */
+
+.page{
+display:flex;
+gap:60px;
+padding:40px 60px;
+}
+
+/* sidebar */
+
+.sidebar{
+width:320px;
+}
+
+.names{
 font-size:18px;
-color:#f0f0f0;
+margin-bottom:6px;
 }
 
-/* CONTAINER */
-
-.container{
-width:1000px;
-margin:auto;
-padding-top:120px;
+.course{
+margin-bottom:20px;
 }
 
-/* HERO */
+/* mission */
+
+.mission-box{
+background:rgba(20,20,20,.75);
+padding:20px;
+border-radius:8px;
+border:1px solid #333;
+font-size:14px;
+line-height:1.6;
+box-shadow:0 0 12px rgba(255,255,255,.05);
+}
+
+.mission-box h3{
+font-family:'Cinzel',serif;
+margin-top:0;
+}
+
+/* main content */
+
+.main{
+flex:1;
+}
+
+/* glow bar */
+
+.glow-bar{
+width:100%;
+height:12px;
+background:white;
+margin:10px 0 40px 0;
+border-radius:4px;
+
+box-shadow:
+0 0 6px #ffe066,
+0 0 10px rgba(255,214,51,.4);
+}
+
+/* hero */
 
 .hero{
 display:flex;
 justify-content:space-between;
-align-items:flex-start;
 gap:40px;
+align-items:flex-start;
 }
 
-/* TITLE */
+/* title */
 
 .title{
-font-family:"Bullath","Cinzel",serif;
-font-size:90px;
-color:#f0f0f0;
+font-family:'Cinzel',serif;
+font-size:80px;
+margin-bottom:10px;
 }
-
-/* INTRO */
 
 .intro{
 max-width:420px;
-margin-top:20px;
 }
 
-/* FRAME WRAPPER */
+/* frame */
 
 .frame-wrapper{
 position:relative;
@@ -68,46 +151,21 @@ width:420px;
 height:260px;
 }
 
-/* MIST EFFECT */
-
-.mist{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:radial-gradient(circle,rgba(255,255,255,0.06),transparent 70%);
-animation:mistMove 8s infinite alternate;
-border-radius:50%;
-z-index:0;
-}
-
-@keyframes mistMove{
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(5px)}
-}
-
-/* FRAME */
-
 .frame{
 width:100%;
 height:100%;
-background:#1a1a1a;
 border-radius:50%;
 overflow:hidden;
-box-shadow:0 0 30px rgba(255,255,255,0.1);
+background:#1a1a1a;
 position:relative;
-z-index:1;
+box-shadow:0 0 20px rgba(255,255,255,0.15);
 }
-
-/* IMAGE STACK FOR FADE */
 
 .frame img{
 position:absolute;
 width:100%;
 height:100%;
-object-fit:contain;
+object-fit:cover;
 top:0;
 left:0;
 opacity:0;
@@ -118,7 +176,7 @@ transition:opacity 3s ease;
 opacity:1;
 }
 
-/* MUSIC BOX */
+/* music */
 
 .audio-section{
 margin-top:20px;
@@ -129,7 +187,7 @@ border-radius:10px;
 box-shadow:0 0 20px rgba(255,255,255,0.05);
 }
 
-/* DIVIDER */
+/* divider */
 
 .divider{
 text-align:center;
@@ -138,7 +196,7 @@ font-size:24px;
 letter-spacing:10px;
 }
 
-/* GRID */
+/* grid */
 
 .grid{
 display:grid;
@@ -146,35 +204,28 @@ grid-template-columns:1fr 1fr;
 gap:30px;
 }
 
-/* SECTION BOXES */
+/* boxes */
 
 .section{
 background:#1b1b1b;
 padding:25px;
 border-radius:10px;
 border:1px solid #333;
-box-shadow:0 0 20px rgba(255,255,255,0.05);
+box-shadow:0 0 15px rgba(255,255,255,0.05);
 height:160px;
 overflow:hidden;
 cursor:pointer;
-transition:all .4s ease;
+transition:.4s;
 }
-
-/* EXPANDED STATE */
 
 .section.active{
 height:320px;
 overflow-y:auto;
 }
 
-/* HEADINGS */
-
 .section h2{
-font-family:'Cinzel', serif;
-color:#f0f0f0;
+font-family:'Cinzel',serif;
 }
-
-/* FULL WIDTH SECTION */
 
 .full{
 grid-column:1/-1;
@@ -182,17 +233,34 @@ text-align:center;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="top-left">
-Tania, Ava, Araceli, Cyan<br>
-IS 270
+<div class="page">
+
+<div class="sidebar">
+
+<div class="names">Tania, Ava, Araceli, Cyan</div>
+<div class="course">IS 270</div>
+
+<div class="mission-box">
+
+<h3>Mission</h3>
+
+<p>
+Cal State LA Special Collections & Archives supports the discovery, learning and engagement goals of the University by identifying, acquiring, preserving, and providing access to primary research materials of enduring value in support of the academic mission of the university, the educational and research needs of the Cal State LA academic community, scholars, and the research community at large.
+
+As a repository situated in East Los Angeles, and at the heart of several diasporic, immigrant communities, Special Collections & Archives moreover aims to capture the diverse lives and historical narratives reflected in our heavily first-generation student body, and the major contributions their communities have made to the dynamic cultures of Southern California.
+</p>
+
 </div>
 
-<div class="container">
+</div>
+
+<div class="main">
+
+<div class="glow-bar"></div>
 
 <div class="hero">
 
@@ -210,28 +278,15 @@ Insert your overview text here describing the profession and its significance.
 
 <div class="frame-wrapper">
 
-<div class="mist"></div>
-
 <div class="frame">
-
 <img id="imgA" class="active">
 <img id="imgB">
-
 </div>
 
 </div>
 
 <div class="audio-section">
-
-<!--
-Future music goes here
-<audio controls>
-<source src="song.mp3" type="audio/mpeg">
-</audio>
--->
-
 Future Music Section
-
 </div>
 
 </div>
@@ -281,11 +336,13 @@ Future Music Section
 
 </div>
 
+</div>
+
 <script>
 
-/* IMAGE LIST */
+document.addEventListener("DOMContentLoaded", function(){
 
-const images = [
+const images=[
 "IMG_1683.jpeg",
 "IMG_1684.jpeg",
 "IMG_1685.jpeg",
@@ -302,48 +359,37 @@ const images = [
 "IMG_1696.jpeg"
 ];
 
-let index = 0;
+let index=0;
 
-let imgA = document.getElementById("imgA");
-let imgB = document.getElementById("imgB");
+const imgA=document.getElementById("imgA");
+const imgB=document.getElementById("imgB");
 
-let showingA = true;
+let showingA=true;
 
-/* initial image */
-
-imgA.src = images[0];
-
-/* rotate images */
+imgA.src=images[0];
 
 function changeImage(){
 
-index = (index + 1) % images.length;
-
-let nextImage = images[index];
+index=(index+1)%images.length;
+let next=images[index];
 
 if(showingA){
-
-imgB.src = nextImage;
+imgB.src=next;
 imgB.classList.add("active");
 imgA.classList.remove("active");
-
 }else{
-
-imgA.src = nextImage;
+imgA.src=next;
 imgA.classList.add("active");
 imgB.classList.remove("active");
-
 }
 
-showingA = !showingA;
+showingA=!showingA;
 
 }
-
-/* every 2 minutes */
 
 setInterval(changeImage,120000);
 
-/* expandable boxes */
+});
 
 function toggleBox(box){
 box.classList.toggle("active");
@@ -352,5 +398,4 @@ box.classList.toggle("active");
 </script>
 
 </body>
-
 </html>
