@@ -7,312 +7,406 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap" rel="stylesheet">
 
+<script src="https://unpkg.com/feather-icons"></script>
+
 <style>
-/* Body and page */
-body {
-  margin: 0;
-  background: #000; /* black background */
-  color: white;
-  font-family: 'Playfair Display', serif;
+
+body{
+margin:0;
+background:#000;
+color:white;
+font-family:'Playfair Display',serif;
 }
 
-.page {
-  display: flex;
-  padding: 50px;
-  gap: 60px;
+/* NAVBAR */
+
+.navbar{
+background:#FFD100;
+padding:16px 40px;
+display:flex;
+justify-content:center;
+gap:50px;
+font-family:'Cinzel';
+font-size:18px;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 300px;
+.navbar a{
+text-decoration:none;
+color:black;
+font-weight:bold;
+position:relative;
 }
 
-.names {
-  font-size: 18px;
-  margin-bottom: 5px;
+.navbar a::after{
+content:"";
+position:absolute;
+width:0;
+height:3px;
+bottom:-6px;
+left:0;
+background:black;
+transition:.3s;
 }
 
-.course {
-  font-size: 18px;
-  margin-bottom: 10px;
+.navbar a:hover::after{
+width:100%;
 }
 
-/* CSULA Logo */
-.logo {
-  width: 150px;
-  margin: 0 auto 30px auto;
-  display: block;
+/* PAGE */
+
+.page{
+max-width:1100px;
+margin:auto;
+padding:60px 40px;
 }
 
-/* Mission box */
-.mission {
-  background: #6C6F73; /* CSULA grey */
-  padding: 20px;
-  border-radius: 10px;
-  line-height: 1.6;
-  border: 2px solid #ffd84d; /* CSULA glow border */
-  box-shadow: 0 0 12px #ffd84d;
-  transition: box-shadow 0.4s, border 0.4s;
+/* HERO */
+
+.hero{
+text-align:center;
+margin-bottom:70px;
 }
 
-/* Main content */
-.main {
-  flex: 1;
+.title{
+font-family:'Cinzel';
+font-size:64px;
+margin-bottom:20px;
 }
 
-/* Horizontal glowing bar */
-.glow-bar {
-  width: 100%;
-  height: 10px;
-  background: white;
-  margin-bottom: 40px;
-  border-radius: 4px;
-  box-shadow:
-    0 0 4px #ffd84d,
-    0 0 8px rgba(255, 214, 51, 0.25);
+/* SLIDESHOW */
+
+.frame-wrapper{
+margin:40px auto;
+width:520px;
+height:300px;
 }
 
-/* Overview section */
-.hero {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
+.frame{
+width:100%;
+height:100%;
+border-radius:14px;
+overflow:hidden;
+position:relative;
+box-shadow:0 0 25px rgba(255,255,255,.15);
 }
 
-.title {
-  font-family: 'Cinzel';
-  font-size: 60px;
+.frame img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity 3s;
 }
 
-/* Oval slideshow */
-.frame-wrapper {
-  width: 420px;
-  height: 260px;
+.frame img.active{
+opacity:1;
 }
 
-.frame {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.3);
+/* DIVIDER */
+
+.divider{
+text-align:center;
+margin:60px 0;
+letter-spacing:12px;
+font-size:22px;
 }
 
-.frame img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 3s;
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
 }
 
-.frame img.active {
-  opacity: 1;
+/* TEXT BOX */
+
+.box{
+background:#6C6F73;
+border-radius:10px;
+padding:20px;
+cursor:pointer;
+height:180px;
+overflow:hidden;
+position:relative;
+
+border:2px solid #FFD100;
+box-shadow:0 0 12px #FFD100;
+
+transition:.4s;
 }
 
-/* Music placeholder */
-.music {
-  margin-top: 20px;
-  background: #6C6F73; /* CSULA grey */
-  padding: 15px;
-  text-align: center;
-  border-radius: 10px;
-  border: 2px solid #ffd84d;
-  box-shadow: 0 0 12px #ffd84d;
-  transition: box-shadow 0.4s, border 0.4s;
+.box:hover{
+transform:translateY(-4px);
+box-shadow:0 0 20px #FFD100;
 }
 
-/* Divider */
-.divider {
-  text-align: center;
-  margin: 60px 0;
-  letter-spacing: 10px;
-  font-size: 22px;
+.box h3{
+font-family:'Cinzel';
+margin-top:0;
+display:flex;
+align-items:center;
+gap:10px;
 }
 
-/* Grid layout */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+/* TITLE ICONS */
+
+.box h3 svg{
+width:22px;
+height:22px;
+stroke-width:1.5;
 }
 
-/* Text boxes */
-.box {
-  background: #6C6F73; /* CSULA grey */
-  border-radius: 10px;
-  padding: 20px;
-  cursor: pointer;
-  height: 180px;
-  overflow: hidden;
-  transition: 0.4s;
-  border: 2px solid #ffd84d; /* CSULA glow border */
-  box-shadow: 0 0 12px #ffd84d;
+/* EXPAND ICON */
+
+.icon-expand{
+position:absolute;
+bottom:12px;
+right:12px;
 }
 
-.box.active {
-  height: 340px;
-  overflow-y: auto;
+.icon-expand svg{
+width:22px;
+height:22px;
+stroke:black;
+stroke-width:2;
 }
 
-.box h3 {
-  font-family: 'Cinzel';
-  margin-top: 0;
+/* CLOSE ICON */
+
+.icon-close{
+display:none;
+position:absolute;
+top:14px;
+right:14px;
 }
 
-/* Centered final box */
-.center {
-  grid-column: 1/-1;
-  text-align: center;
+.icon-close svg{
+width:26px;
+height:26px;
+stroke:black;
+stroke-width:2.5;
+cursor:pointer;
 }
 
-/* Hover effect for boxes, mission, and music */
-.box:hover,
-.mission:hover,
-.music:hover {
-  border-color: #ffd84d;
-  box-shadow: 0 0 20px #ffd84d, 0 0 30px #ffd84d, 0 0 40px #ffd84d;
+/* CENTER BOX */
+
+.center{
+grid-column:1/-1;
+text-align:center;
 }
+
+/* EXPANDED STATE */
+
+.box.expanded{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100vw;
+height:100vh;
+
+z-index:999;
+
+padding:60px;
+overflow-y:auto;
+
+background:#6C6F73;
+
+}
+
+.box.expanded .icon-expand{
+display:none;
+}
+
+.box.expanded .icon-close{
+display:block;
+}
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+padding:40px;
+margin-top:60px;
+border-top:1px solid #333;
+font-size:16px;
+}
+
 </style>
 </head>
 
+
 <body>
-<div class="page">
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-
-    <div class="names">
-      Tania • Ava • Araceli • Cyan
-    </div>
-
-    <div class="course">
-      IS270
-    </div>
-
-    <img src="csula_logo.png" class="logo" alt="CSULA Logo">
-
-    <div class="mission">
-      <h3>Mission</h3>
-      <p>
-        Cal State LA Special Collections & Archives supports the discovery, learning and engagement goals of the University by identifying, acquiring, preserving, and providing access to primary research materials of enduring value in support of the academic mission of the university, the educational and research needs of the Cal State LA academic community, scholars, and the research community at large.
-      </p>
-    </div>
-
-  </div>
-
-  <!-- Main Content -->
-  <div class="main">
-
-    <div class="glow-bar"></div>
-
-    <div class="hero">
-      <div>
-        <div class="title">Overview</div>
-        <p>Overview text explaining the archival profession and your project.</p>
-      </div>
-
-      <div>
-        <div class="frame-wrapper">
-          <div class="frame">
-            <img id="imgA" class="active">
-            <img id="imgB">
-          </div>
-        </div>
-
-        <div class="music">
-          Future music player
-        </div>
-      </div>
-    </div>
-
-    <div class="divider">✦ ✦ ✦</div>
-
-    <!-- 7 text boxes -->
-    <div class="grid">
-
-      <div class="box" onclick="expand(this)">
-        <h3>Typical Tasks</h3>
-        <p>Acquire research materials such as rare books, manuscripts, maps, and ephemera
-Preserve materials through specific storage conditions and careful environmental monitoring
-Assist users in accessing materials in a controlled and restrictive environment
-Catalog and digitize materials using systems such as Luna, Alma, Dublin Core, and Primo
-</p>
-      </div>
-
-      <div class="box" onclick="expand(this)">
-        <h3>Professional Context</h3>
-        <p>RMBS (Rare Books and Manuscript Section) of the Association of College and Research Libraries
-        SAA (Society of American Archivists)
-        Annual RMBS Conference
-        RBMS Job Board, Archives Gig, & ALA JobList
-</p>
-      </div>
-
-      <div class="box" onclick="expand(this)">
-        <h3>Job Market Outlook</h3>
-        <p>The job market for archiving in general is projected to grow 6% between 2024 to 2034, faster than the average among all occupations.
-This reflects the growth that special collections specifically experienced the decade before. On the Rare Books and Manuscripts news blog, advertised special collections positions rose from 27 in 2014 to 121 in 2016, then to 140 in 2019.
-While hiring slowed doing during the COVID-19 pandemic, this later resulted in numerous open positions as the world has resumed its pre-pandemic function. This has also led to an increase in hybrid roles, which gives more opportunities to employees with farther commutes.
-</p>
-      </div>
-
-      <div class="box" onclick="expand(this)">
-        <h3>Technical Skills</h3>
-        <p>Insert your text here.</p>
-      </div>
-
-      <div class="box" onclick="expand(this)">
-        <h3>Training</h3>
-        <p>Insert your text here.</p>
-      </div>
-
-      <div class="box" onclick="expand(this)">
-        <h3>Labor Trends</h3>
-        <p>Insert your text here.</p>
-      </div>
-
-      <div class="box center" onclick="expand(this)">
-        <h3>Five Ways to Understand the Profession</h3>
-        <p>1<br>2<br>3<br>4<br>5</p>
-      </div>
-
-    </div>
-  </div>
+<div class="navbar">
+<a href="index.html">Home</a>
+<a href="azalea.html">Azalea C</a>
+<a href="ai.html">AI Guidelines</a>
+<a href="archive.html">Special Collections Archive</a>
+<a href="references.html">References</a>
 </div>
 
+
+<div class="page">
+
+
+<div class="hero">
+
+<div class="title">Overview</div>
+
+<p>
+Overview text explaining the archival profession and your project.
+</p>
+
+<div class="frame-wrapper">
+
+<div class="frame">
+<img id="imgA" class="active">
+<img id="imgB">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="divider">✦ ✦ ✦</div>
+
+
+<div class="grid">
+
+
+<div class="box" onclick="expandBox(this)">
+
+<div class="icon-expand"><i data-feather="maximize"></i></div>
+<div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
+
+<h3><i data-feather="clipboard"></i> Typical Tasks</h3>
+
+<p>
+Acquire research materials such as rare books, manuscripts, maps, and ephemera.
+Preserve materials through environmental monitoring.
+Assist users accessing materials in controlled environments.
+Catalog and digitize materials using Luna, Alma, Dublin Core, and Primo.
+</p>
+
+</div>
+
+
+
+<div class="box" onclick="expandBox(this)">
+
+<div class="icon-expand"><i data-feather="maximize"></i></div>
+<div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
+
+<h3><i data-feather="users"></i> Professional Context</h3>
+
+<p>
+RMBS (Rare Books and Manuscript Section)  
+Society of American Archivists  
+RBMS Job Board and ALA JobList
+</p>
+
+</div>
+
+
+
+<div class="box" onclick="expandBox(this)">
+
+<div class="icon-expand"><i data-feather="maximize"></i></div>
+<div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
+
+<h3><i data-feather="trending-up"></i> Job Market Outlook</h3>
+
+<p>
+The job market for archivists is projected to grow 6% between 2024–2034.
+Special collections positions increased significantly before COVID.
+Hybrid roles have increased opportunities.
+</p>
+
+</div>
+
+
+
+<div class="box" onclick="expandBox(this)">
+
+<div class="icon-expand"><i data-feather="maximize"></i></div>
+<div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
+
+<h3><i data-feather="cpu"></i> Technical Skills</h3>
+
+<p>Insert your text here.</p>
+
+</div>
+
+
+
+<div class="box" onclick="expandBox(this)">
+
+<div class="icon-expand"><i data-feather="maximize"></i></div>
+<div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
+
+<h3><i data-feather="book-open"></i> Training</h3>
+
+<p>Insert your text here.</p>
+
+</div>
+
+
+
+<div class="box" onclick="expandBox(this)">
+
+<div class="icon-expand"><i data-feather="maximize"></i></div>
+<div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
+
+<h3><i data-feather="globe"></i> Labor Trends</h3>
+
+<p>Insert your text here.</p>
+
+</div>
+
+
+
+<div class="box center" onclick="expandBox(this)">
+
+<div class="icon-expand"><i data-feather="maximize"></i></div>
+<div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
+
+<h3><i data-feather="search"></i> Five Ways to Understand the Profession</h3>
+
+<p>1<br>2<br>3<br>4<br>5</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+
+Tania • Ava • Araceli • Cyan<br>
+IS270
+
+</div>
+
+
 <script>
-/* Expand text boxes */
-function expand(box){
-  box.classList.toggle("active");
+
+feather.replace()
+
+function expandBox(box){
+box.classList.add("expanded");
 }
 
-/* Slideshow */
-const images=[
-  "IMG_1683.jpeg","IMG_1684.jpeg","IMG_1685.jpeg","IMG_1686.jpeg",
-  "IMG_1687.jpeg","IMG_1688.jpeg","IMG_1689.jpeg","IMG_1690.jpeg",
-  "IMG_1691.jpeg","IMG_1692.jpeg","IMG_1693.jpeg","IMG_1694.jpeg",
-  "IMG_1695.jpeg","IMG_1696.jpeg"
-];
+function closeBox(event,icon){
+event.stopPropagation();
+icon.parentElement.classList.remove("expanded");
+}
 
-let index=0;
-const imgA=document.getElementById("imgA");
-const imgB=document.getElementById("imgB");
-imgA.src=images[0];
-
-setInterval(()=>{
-  index=(index+1)%images.length;
-  imgB.src=images[index];
-  imgB.classList.add("active");
-  imgA.classList.remove("active");
-  setTimeout(()=>{
-    imgA.src=images[index];
-    imgA.classList.add("active");
-    imgB.classList.remove("active");
-  },3000)
-},60000);
 </script>
 
 </body>
