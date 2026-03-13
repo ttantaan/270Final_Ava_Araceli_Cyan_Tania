@@ -6,7 +6,6 @@
 <title>IS270 Project</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap" rel="stylesheet">
-
 <script src="https://unpkg.com/feather-icons"></script>
 
 <style>
@@ -150,7 +149,7 @@ align-items:center;
 gap:10px;
 }
 
-/* TITLE ICONS */
+/* TITLE ICON */
 
 .box h3 svg{
 width:22px;
@@ -178,13 +177,13 @@ stroke-width:2;
 .icon-close{
 display:none;
 position:absolute;
-top:14px;
-right:14px;
+top:20px;
+right:20px;
 }
 
 .icon-close svg{
-width:26px;
-height:26px;
+width:32px;
+height:32px;
 stroke:black;
 stroke-width:2.5;
 cursor:pointer;
@@ -202,18 +201,22 @@ text-align:center;
 .box.expanded{
 
 position:fixed;
-top:0;
-left:0;
 
-width:100vw;
-height:100vh;
+/* 2 inch margin all sides */
+top:2in;
+left:2in;
+right:2in;
+bottom:2in;
 
 z-index:999;
 
-padding:60px;
+padding:50px;
 overflow-y:auto;
 
 background:#6C6F73;
+
+height:auto;
+width:auto;
 
 }
 
@@ -252,7 +255,6 @@ font-size:16px;
 
 <div class="page">
 
-
 <div class="hero">
 
 <div class="title">Overview</div>
@@ -262,12 +264,10 @@ Overview text explaining the archival profession and your project.
 </p>
 
 <div class="frame-wrapper">
-
 <div class="frame">
 <img id="imgA" class="active">
 <img id="imgB">
 </div>
-
 </div>
 
 </div>
@@ -278,9 +278,7 @@ Overview text explaining the archival profession and your project.
 
 <div class="grid">
 
-
 <div class="box" onclick="expandBox(this)">
-
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
 
@@ -292,13 +290,10 @@ Preserve materials through environmental monitoring.
 Assist users accessing materials in controlled environments.
 Catalog and digitize materials using Luna, Alma, Dublin Core, and Primo.
 </p>
-
 </div>
 
 
-
 <div class="box" onclick="expandBox(this)">
-
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
 
@@ -309,13 +304,10 @@ RMBS (Rare Books and Manuscript Section)
 Society of American Archivists  
 RBMS Job Board and ALA JobList
 </p>
-
 </div>
 
 
-
 <div class="box" onclick="expandBox(this)">
-
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
 
@@ -323,74 +315,54 @@ RBMS Job Board and ALA JobList
 
 <p>
 The job market for archivists is projected to grow 6% between 2024–2034.
-Special collections positions increased significantly before COVID.
 Hybrid roles have increased opportunities.
 </p>
-
 </div>
 
 
-
 <div class="box" onclick="expandBox(this)">
-
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
 
 <h3><i data-feather="cpu"></i> Technical Skills</h3>
-
 <p>Insert your text here.</p>
-
 </div>
 
 
-
 <div class="box" onclick="expandBox(this)">
-
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
 
 <h3><i data-feather="book-open"></i> Training</h3>
-
 <p>Insert your text here.</p>
-
 </div>
 
 
-
 <div class="box" onclick="expandBox(this)">
-
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
 
 <h3><i data-feather="globe"></i> Labor Trends</h3>
-
 <p>Insert your text here.</p>
-
 </div>
 
 
-
 <div class="box center" onclick="expandBox(this)">
-
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
 
 <h3><i data-feather="search"></i> Five Ways to Understand the Profession</h3>
 
 <p>1<br>2<br>3<br>4<br>5</p>
-
 </div>
 
 </div>
-
 </div>
 
 
 <div class="footer">
-
 Tania • Ava • Araceli • Cyan<br>
 IS270
-
 </div>
 
 
@@ -406,6 +378,39 @@ function closeBox(event,icon){
 event.stopPropagation();
 icon.parentElement.classList.remove("expanded");
 }
+
+/* SLIDESHOW */
+
+const images=[
+"IMG_1683.jpeg","IMG_1684.jpeg","IMG_1685.jpeg","IMG_1686.jpeg",
+"IMG_1687.jpeg","IMG_1688.jpeg","IMG_1689.jpeg","IMG_1690.jpeg",
+"IMG_1691.jpeg","IMG_1692.jpeg","IMG_1693.jpeg","IMG_1694.jpeg",
+"IMG_1695.jpeg","IMG_1696.jpeg"
+];
+
+let index=0;
+
+const imgA=document.getElementById("imgA");
+const imgB=document.getElementById("imgB");
+
+imgA.src=images[0];
+
+setInterval(()=>{
+
+index=(index+1)%images.length;
+
+imgB.src=images[index];
+imgB.classList.add("active");
+
+imgA.classList.remove("active");
+
+setTimeout(()=>{
+imgA.src=images[index];
+imgA.classList.add("active");
+imgB.classList.remove("active");
+},3000)
+
+},60000);
 
 </script>
 
