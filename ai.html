@@ -1,1 +1,136 @@
-bbbbbb
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Azalea C - California State University, Los Angeles Special Collections Archive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/feather-icons"></script>
+
+<style>
+body {
+  margin: 0;
+  background: #000;
+  color: white;
+  font-family: 'Playfair Display', serif;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #FFD100;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  font-family: 'Cinzel';
+  font-size: 18px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -6px;
+  left: 0;
+  background: black;
+  transition: .3s;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* PAGE CONTENT */
+.page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Cinzel';
+  font-size: 52px;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+/* CONTENT SECTION */
+.content-section {
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+}
+
+.content-section h2 {
+  font-family: 'Cinzel';
+  margin-bottom: 20px;
+}
+
+.content-section p {
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* DIAMOND DIVIDER */
+.divider {
+  text-align: center;
+  margin: 40px 0;
+  letter-spacing: 12px;
+  font-size: 22px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="azalea.html">Azalea C</a>
+  <a href="ai.html">AI Guidelines</a>
+  <a href="archive.html">Special Collections Archive</a>
+  <a href="references.html">References</a>
+</div>
+
+<div class="page">
+
+<h1 class="title">California State University, Los Angeles Special Collections Archive</h1>
+
+<!-- WRITABLE CONTENT SECTION -->
+<div class="content-section">
+<h2>Page Title Here</h2>
+<p>
+This is the section where you can write text.
+</p>
+
+<div class="divider">✦ ✦ ✦</div>
+
+<p>
+Add more content here. Each section can be separated with the diamond dividers for consistency across the site.
+</p>
+
+<div class="divider">✦ ✦ ✦</div>
+
+<p>
+Continue adding text, images, or links relevant to this page.
+</p>
+</div>
+
+</div>
+
+<script>
+feather.replace()
+</script>
+
+</body>
+</html>
