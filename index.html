@@ -54,28 +54,33 @@ width:100%;
 /* PAGE */
 
 .page{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 padding:60px 40px;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero{
-text-align:center;
-margin-bottom:70px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:60px;
+margin-bottom:40px;
 }
+
+/* TITLE */
 
 .title{
 font-family:'Cinzel';
-font-size:64px;
-margin-bottom:20px;
+font-size:52px;
+line-height:1.2;
+max-width:500px;
 }
 
 /* SLIDESHOW */
 
 .frame-wrapper{
-margin:40px auto;
 width:520px;
 height:300px;
 }
@@ -100,6 +105,19 @@ transition:opacity 3s;
 
 .frame img.active{
 opacity:1;
+}
+
+/* OVERVIEW SECTION */
+
+.overview{
+max-width:900px;
+margin:40px auto 60px auto;
+text-align:center;
+}
+
+.overview h2{
+font-family:'Cinzel';
+margin-bottom:20px;
 }
 
 /* DIVIDER */
@@ -149,8 +167,6 @@ align-items:center;
 gap:10px;
 }
 
-/* TITLE ICON */
-
 .box h3 svg{
 width:22px;
 height:22px;
@@ -199,25 +215,15 @@ text-align:center;
 /* EXPANDED STATE */
 
 .box.expanded{
-
 position:fixed;
-
-/* 2 inch margin all sides */
 top:2in;
 left:2in;
 right:2in;
 bottom:2in;
-
 z-index:999;
-
 padding:50px;
 overflow-y:auto;
-
 background:#6C6F73;
-
-height:auto;
-width:auto;
-
 }
 
 .box.expanded .icon-expand{
@@ -228,19 +234,8 @@ display:none;
 display:block;
 }
 
-/* FOOTER */
-
-.footer{
-text-align:center;
-padding:40px;
-margin-top:60px;
-border-top:1px solid #333;
-font-size:16px;
-}
-
 </style>
 </head>
-
 
 <body>
 
@@ -252,16 +247,15 @@ font-size:16px;
 <a href="references.html">References</a>
 </div>
 
-
 <div class="page">
 
+<!-- HERO (TITLE + IMAGES) -->
 <div class="hero">
-
-<div class="title">Overview</div>
-
-<p>
-Overview text explaining the archival profession and your project.
-</p>
+<div class="title">
+California State University,<br>
+Los Angeles<br>
+Special Collections Archive
+</div>
 
 <div class="frame-wrapper">
 <div class="frame">
@@ -269,21 +263,25 @@ Overview text explaining the archival profession and your project.
 <img id="imgB">
 </div>
 </div>
-
 </div>
 
+<!-- OVERVIEW SECTION BELOW HERO -->
+<div class="overview">
+<h2>Overview</h2>
+<p>
+This is the area to describe your Special Collections Archive, its mission, and the focus of your project.
+You can add more text here to expand your overview as needed.
+</p>
+</div>
 
 <div class="divider">✦ ✦ ✦</div>
-
 
 <div class="grid">
 
 <div class="box" onclick="expandBox(this)">
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
-
 <h3><i data-feather="clipboard"></i> Typical Tasks</h3>
-
 <p>
 Acquire research materials such as rare books, manuscripts, maps, and ephemera.
 Preserve materials through environmental monitoring.
@@ -292,13 +290,10 @@ Catalog and digitize materials using Luna, Alma, Dublin Core, and Primo.
 </p>
 </div>
 
-
 <div class="box" onclick="expandBox(this)">
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
-
 <h3><i data-feather="users"></i> Professional Context</h3>
-
 <p>
 RMBS (Rare Books and Manuscript Section)  
 Society of American Archivists  
@@ -306,69 +301,50 @@ RBMS Job Board and ALA JobList
 </p>
 </div>
 
-
 <div class="box" onclick="expandBox(this)">
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
-
 <h3><i data-feather="trending-up"></i> Job Market Outlook</h3>
-
 <p>
 The job market for archivists is projected to grow 6% between 2024–2034.
 Hybrid roles have increased opportunities.
 </p>
 </div>
 
-
 <div class="box" onclick="expandBox(this)">
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
-
 <h3><i data-feather="cpu"></i> Technical Skills</h3>
 <p>Insert your text here.</p>
 </div>
 
-
 <div class="box" onclick="expandBox(this)">
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
-
 <h3><i data-feather="book-open"></i> Training</h3>
 <p>Insert your text here.</p>
 </div>
 
-
 <div class="box" onclick="expandBox(this)">
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
-
 <h3><i data-feather="globe"></i> Labor Trends</h3>
 <p>Insert your text here.</p>
 </div>
 
-
 <div class="box center" onclick="expandBox(this)">
 <div class="icon-expand"><i data-feather="maximize"></i></div>
 <div class="icon-close" onclick="closeBox(event,this)"><i data-feather="x"></i></div>
-
 <h3><i data-feather="search"></i> Five Ways to Understand the Profession</h3>
-
 <p>1<br>2<br>3<br>4<br>5</p>
 </div>
 
 </div>
+
 </div>
-
-
-<div class="footer">
-Tania • Ava • Araceli • Cyan<br>
-IS270
-</div>
-
 
 <script>
-
-feather.replace()
+feather.replace();
 
 function expandBox(box){
 box.classList.add("expanded");
