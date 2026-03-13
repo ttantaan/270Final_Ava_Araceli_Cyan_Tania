@@ -59,9 +59,14 @@ body {
 
 .title {
   font-family: 'Cinzel';
-  font-size: 52px;
+  font-size: 40px;
   line-height: 1.2;
   margin-bottom: 40px;
+}
+
+.title div {
+  line-height: 1.2;
+  margin-bottom: 8px;
 }
 
 /* CONTENT SECTION */
@@ -69,16 +74,17 @@ body {
   max-width: 900px;
   margin: auto;
   text-align: left;
+  padding: 0 20px;
 }
 
 .content-section h2 {
   font-family: 'Cinzel';
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .content-section p {
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 /* DIAMOND DIVIDER */
@@ -87,6 +93,28 @@ body {
   margin: 40px 0;
   letter-spacing: 12px;
   font-size: 22px;
+}
+
+/* MINI SLIDESHOW */
+.mini-slideshow {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.mini-slideshow img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #FFD100;
+  transition: transform 0.3s;
+}
+
+.mini-slideshow img:hover {
+  transform: scale(1.05);
 }
 </style>
 </head>
@@ -104,26 +132,34 @@ body {
 
 <div class="page">
 
-<h1 class="title">California State University, Los Angeles Special Collections Archive</h1>
+<!-- Two-line Title -->
+<h1 class="title">
+  <div>California State University, Los Angeles</div>
+  <div>Special Collections Archive</div>
+</h1>
 
 <!-- WRITABLE CONTENT SECTION -->
 <div class="content-section">
 <h2>Page Title Here</h2>
-<p>
-This is the section where you can write text.
-</p>
+
+<p>blah blah blah.</p>
+
+<p>blah blah blah.</p>
 
 <div class="divider">✦ ✦ ✦</div>
 
-<p>
-Add more content here. Each section can be separated with the diamond dividers for consistency across the site.
-</p>
+<p>blah blah blah.</p>
+
+<div class="mini-slideshow">
+  <img src="IMG_1691.jpeg" alt="Collection Image 1">
+  <img src="IMG_1692.jpeg" alt="Collection Image 2">
+  <img src="IMG_1693.jpeg" alt="Collection Image 3">
+</div>
 
 <div class="divider">✦ ✦ ✦</div>
 
-<p>
-Continue adding text, images, or links relevant to this page.
-</p>
+<p>blah blah blah</p>
+
 </div>
 
 </div>
