@@ -84,7 +84,30 @@ body {
 
 .content-section p {
   line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* IMAGE + TEXT ROW */
+.image-text-row {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
   margin-bottom: 30px;
+}
+
+.image-text-row img {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #FFD100;
+}
+
+.image-text-row .text {
+  flex: 1;
+}
+
+/* TEXT BELOW IMAGE + TEXT */
+.full-text {
+  margin-top: 20px;
 }
 
 /* DIAMOND DIVIDER */
@@ -116,6 +139,7 @@ body {
 .mini-slideshow img:hover {
   transform: scale(1.05);
 }
+
 </style>
 </head>
 
@@ -140,15 +164,34 @@ body {
 
 <!-- WRITABLE CONTENT SECTION -->
 <div class="content-section">
-<h2>Page Title Here</h2>
 
-<p>blah blah blah.</p>
+<h2>Azalea C Collection</h2>
 
-<p>blah blah blah.</p>
+<!-- IMAGE LEFT / TEXT RIGHT -->
+<div class="image-text-row">
+
+<img src="azalea.jpg" alt="Azalea Collection Image">
+
+<div class="text">
+<p>
+blah blah blah
+</p>
+
+<p>
+blahhhh blah blah
+</p>
+</div>
+
+</div>
+
+<!-- TEXT BELOW IMAGE AND FIRST TEXT -->
+<div class="full-text">
+<p>
+blah blah blahhhhhh
+</p>
+</div>
 
 <div class="divider">✦ ✦ ✦</div>
-
-<p>blah blah blah.</p>
 
 <div class="mini-slideshow">
   <img src="IMG_1685.jpeg" alt="Collection Image 1">
@@ -157,10 +200,6 @@ body {
 </div>
 
 <div class="divider">✦ ✦ ✦</div>
-
-<p>blah blah blah</p>
-
-</div>
 
 </div>
 
