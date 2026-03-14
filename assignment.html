@@ -1,1 +1,181 @@
-bb
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Azalea C - California State University, Los Angeles Special Collections Archive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/feather-icons"></script>
+
+<style>
+body {
+  margin: 0;
+  background: #000;
+  color: white;
+  font-family: 'Playfair Display', serif;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #FFD100;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  font-family: 'Cinzel';
+  font-size: 18px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -6px;
+  left: 0;
+  background: black;
+  transition: .3s;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* PAGE CONTENT */
+.page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Cinzel';
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.title div {
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+  .content-section a {
+  color: #FFD100;
+  text-decoration: underline;
+}
+
+/* CONTENT SECTION */
+.content-section {
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.content-section h2 {
+  font-family: 'Cinzel';
+  margin-bottom: 25px;
+}
+.content-section h3 {
+  font-family: 'Cinzel';
+  margin-bottom: 25px;
+}
+.content-section p {
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* DIAMOND DIVIDER */
+.divider {
+  text-align: center;
+  margin: 40px 0;
+  letter-spacing: 12px;
+  font-size: 22px;
+}
+
+/* MINI SLIDESHOW */
+.mini-slideshow {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.mini-slideshow img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #FFD100;
+  transition: transform 0.3s;
+}
+
+.mini-slideshow img:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="azalea.html">Azalea </a>
+  <a href="ai.html">AI Guidelines</a>
+  <a href="archive.html">CSULA</a>
+  <a href="references.html">References</a>
+  <a href="assignment.html">Assignment</a>
+</div>
+
+<div class="page">
+
+<!-- Two-line Title -->
+<h1 class="title">
+  <div>California State University, Los Angeles</div>
+  <div>Special Collections Archive</div>
+</h1>
+
+<!-- WRITABLE CONTENT SECTION -->
+<div class="content-section">
+<h2>Assignemnt </h2>
+
+<p>something will be written here eventually</p>
+
+  <div class="content-section">
+  <h2> Contributions (2025)</h2>
+
+<p> blah blah </p>
+  </div>
+
+
+<div class="divider">✦ ✦ ✦</div>
+
+<div class="mini-slideshow">
+  <img src="IMG_1696.jpeg" alt="Collection Image 1">
+  <img src="IMG_1696.jpeg" alt="Collection Image 2">
+  <img src="IMG_1694.jpeg" alt="Collection Image 3">
+</div>
+
+<div class="divider">✦ ✦ ✦</div>
+
+</div>
+
+</div>
+
+<script>
+feather.replace()
+</script>
+
+</body>
+</html>
